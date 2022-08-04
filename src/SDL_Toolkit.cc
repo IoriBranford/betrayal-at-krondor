@@ -382,8 +382,8 @@ SDL_Toolkit::HandleEvent(SDL_Event *event)
         case SDL_USEREVENT:
             {
                 // timer event
-                clock->CancelTimer((unsigned long)event->user.data1);
-                TimerEvent te((unsigned long)event->user.data1);
+                clock->CancelTimer((uintptr_t)event->user.data1);
+                TimerEvent te((uintptr_t)event->user.data1);
                 for (std::list<TimerEventListener *>::iterator it = timerListeners.begin(); it != timerListeners.end(); ++it)
                 {
                     (*it)->TimerExpired(te);
